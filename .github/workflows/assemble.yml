@@ -22,8 +22,8 @@ jobs:
         run: |
           set -euo pipefail
           count=$(find parts -maxdepth 1 -type f -name 'part*.b64' 2>/dev/null | wc -l)
-          if [ "$count" -ne 23 ]; then
-            echo "Waiting for all 23 parts (currently $count)."
+          if [ "$count" -ne 7 ]; then
+            echo "Waiting for all 7 parts (currently $count)."
             exit 0
           fi
           cat $(find parts -maxdepth 1 -type f -name 'part*.b64' | sort) | base64 -d | xz -d > danbooru_tag_groups.txt
